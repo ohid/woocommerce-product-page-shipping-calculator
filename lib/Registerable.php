@@ -1,7 +1,4 @@
 <?php
-
-namespace Barn2\WPPSC_Lib;
-
 /**
  * An object that can be registered with WordPress via the Plugin API, i.e. add_action() and add_filter().
  *
@@ -11,6 +8,9 @@ namespace Barn2\WPPSC_Lib;
  * @copyright Barn2 Media Ltd
  * @version   1.0
  */
+
+namespace Barn2\WPPSC_Lib;
+
 interface Registerable {
 
 	/**

@@ -1,9 +1,4 @@
 <?php
-
-namespace Barn2\WPPSC_Lib\Plugin;
-
-use Barn2\WPPSC_Lib\Util;
-
 /**
  * Basic implementation of the Plugin interface which stores core data about a
  * WordPress plugin (ID, version number, etc). Data is passed as an array on construction.
@@ -14,18 +9,52 @@ use Barn2\WPPSC_Lib\Util;
  * @copyright Barn2 Media Ltd
  * @version   1.2
  */
+
+namespace Barn2\WPPSC_Lib\Plugin;
+
+use Barn2\WPPSC_Lib\Util;
+
 class Simple_Plugin implements Plugin {
 
+	/**
+	 * The plugin file
+	 *
+	 * @var $file
+	 */
 	protected $file;
+
+	/**
+	 * Plugin data
+	 *
+	 * @var $data
+	 */
 	protected $data;
+
+	/**
+	 * Plugin basename
+	 *
+	 * @var $basename
+	 */
 	private $basename = null;
+
+	/**
+	 * Plugin directory path
+	 *
+	 * @var $dir_path
+	 */
 	private $dir_path = null;
+
+	/**
+	 * Plugin directory URL
+	 *
+	 * @var $dir_url
+	 */
 	private $dir_url = null;
 
 	/**
 	 * Constructs a new simple plugin with the supplied plugin data.
 	 *
-	 * @param array  $data                 {
+	 * @param array $data                 {.
 	 * @type int     $id                   (required) The plugin ID. This should be the EDD Download ID.
 	 * @type string  $name                 (required) The plugin name.
 	 * @type string  $version              (required) The plugin version, e.g. '1.2.3'.
@@ -37,16 +66,18 @@ class Simple_Plugin implements Plugin {
 	 *                                     }
 	 */
 	public function __construct( array $data ) {
-		$this->data = array_merge( [
-			'id'                 => 0,
-			'name'               => '',
-			'version'            => '',
-			'file'               => null,
-			'is_woocommerce'     => false,
-			'is_edd'             => false,
-			'documentation_path' => '',
-			'settings_path'      => '',
-		], $data
+		$this->data = array_merge(
+			array(
+				'id'                 => 0,
+				'name'               => '',
+				'version'            => '',
+				'file'               => null,
+				'is_woocommerce'     => false,
+				'is_edd'             => false,
+				'documentation_path' => '',
+				'settings_path'      => '',
+			),
+			$data
 		);
 
 		$this->data['id']                 = (int) $this->data['id'];

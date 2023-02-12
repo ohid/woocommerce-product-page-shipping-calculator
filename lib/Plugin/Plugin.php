@@ -1,6 +1,4 @@
 <?php
-namespace Barn2\WPPSC_Lib\Plugin;
-
 /**
  * Basic interface implemented by all Barn2 plugins.
  *
@@ -10,6 +8,9 @@ namespace Barn2\WPPSC_Lib\Plugin;
  * @copyright Barn2 Media Ltd
  * @version   1.2
  */
+
+namespace Barn2\WPPSC_Lib\Plugin;
+
 interface Plugin {
 
 	/**

@@ -1,9 +1,4 @@
 <?php
-
-namespace Barn2\WPPSC_Lib;
-
-use Barn2\WPPSC_Lib\Plugin\Plugin;
-
 /**
  * Utility functions for Barn2 plugins.
  *
@@ -13,6 +8,11 @@ use Barn2\WPPSC_Lib\Plugin\Plugin;
  * @copyright Barn2 Media Ltd
  * @version   1.5.4
  */
+
+namespace Barn2\WPPSC_Lib;
+
+use Barn2\WPPSC_Lib\Plugin\Plugin;
+
 class Util {
 
 	const BARN2_URL          = 'https://barn2.com';
@@ -34,18 +34,42 @@ class Util {
 		return self::format_link( self::barn2_url( $relative_path ), esc_html( $link_text ), $new_tab );
 	}
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @param string $relative_path Relative path.
+	 */
 	public static function barn2_url( $relative_path ) {
 		return esc_url( trailingslashit( self::BARN2_URL ) . ltrim( $relative_path, '/' ) );
 	}
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @param string  $relative_path Relative path.
+	 * @param boolean $new_tab Should be a new tab or not.
+	 */
 	public static function format_barn2_link_open( $relative_path, $new_tab = false ) {
 		return self::format_link_open( self::barn2_url( $relative_path ), $new_tab );
 	}
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @param string  $url URL.
+	 * @param string  $link_text Link Text.
+	 * @param boolean $new_tab Should be a new tab or not.
+	 */
 	public static function format_link( $url, $link_text, $new_tab = false ) {
 		return sprintf( '%1$s%2$s</a>', self::format_link_open( $url, $new_tab ), $link_text );
 	}
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @param string  $url URL.
+	 * @param boolean $new_tab Should be a new tab or not.
+	 */
 	public static function format_link_open( $url, $new_tab = false ) {
 		$target = $new_tab ? ' target="_blank"' : '';
 		return sprintf( '<a href="%1$s"%2$s>', esc_url( $url ), $target );
@@ -54,25 +78,45 @@ class Util {
 	/**
 	 * Format a Barn2 store URL.
 	 *
-	 * @param string $relative_path The relative path
+	 * @param string $relative_path The relative path.
 	 */
 	public static function store_url( $relative_path ) {
 		return self::EDD_STORE_URL . '/' . ltrim( $relative_path, ' /' );
 	}
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @param string  $relative_path The relative path.
+	 * @param string  $link_text Link Text.
+	 * @param boolean $new_tab Should be a new tab or not.
+	 */
 	public static function format_store_link( $relative_path, $link_text, $new_tab = true ) {
 		return self::format_link( self::store_url( $relative_path ), $link_text, $new_tab );
 	}
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @param string  $relative_path The relative path.
+	 * @param boolean $new_tab Should be a new tab or not.
+	 */
 	public static function format_store_link_open( $relative_path, $new_tab = true ) {
 		return self::format_link_open( self::store_url( $relative_path ), $new_tab );
 	}
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @param int    $download_id Download id.
+	 * @param int    $price_id Price ID.
+	 * @param string $discount_code Discount code.
+	 */
 	public static function get_add_to_cart_url( $download_id, $price_id = 0, $discount_code = '' ) {
-		$args = [
+		$args = array(
 			'edd_action'  => 'add_to_cart',
-			'download_id' => (int) $download_id
-		];
+			'download_id' => (int) $download_id,
+		);
 		if ( $price_id ) {
 			$args['edd_options[price_id]'] = (int) $price_id;
 		}
@@ -140,7 +184,7 @@ class Util {
 	/**
 	 * Returns true if the plugin instance returned by $function is an active Barn2 plugin.
 	 *
-	 * @param string $function The function that returns the plugin instance
+	 * @param string $function The function that returns the plugin instance.
 	 * @return bool true if active
 	 * @since 1.5.3
 	 */
@@ -216,7 +260,7 @@ class Util {
 	/**
 	 * Register the Services in the given array.
 	 *
-	 * @param array $services The services to register
+	 * @param array $services The services to register.
 	 */
 	public static function register_services( $services ) {
 		array_map(
@@ -238,7 +282,7 @@ class Util {
 	/**
 	 * Format a Barn2 store URL.
 	 *
-	 * @param string $relative_path The relative path
+	 * @param string $relative_path The relative path.
 	 * @deprecated 1.5 Renamed store_url
 	 */
 	public static function format_store_url( $relative_path ) {
@@ -248,8 +292,8 @@ class Util {
 	/**
 	 * Retrieves an array of internal WP dependencies for bundled JS files.
 	 *
-	 * @param Barn2\WPPSC_Lib\Plugin $plugin
-	 * @param string           $filename
+	 * @param Barn2\WPPSC_Lib\Plugin $plugin Main Plugin.
+	 * @param string                 $filename File name.
 	 * @return array
 	 */
 	public static function get_script_dependencies( $plugin, $filename ) {
@@ -257,13 +301,13 @@ class Util {
 		$script_dependencies      = file_exists( $script_dependencies_file ) ? file_get_contents( $script_dependencies_file ) : false;
 
 		if ( $script_dependencies === false ) {
-			return [];
+			return array();
 		}
 
 		$script_dependencies = json_decode( $script_dependencies, true );
 
 		if ( ! isset( $script_dependencies[ $filename ] ) ) {
-			return [];
+			return array();
 		}
 
 		return $script_dependencies[ $filename ];
@@ -288,7 +332,7 @@ class Util {
 		if ( $option_value > 0 ) {
 			$page_object = get_post( $option_value );
 
-			if ( $page_object && 'page' === $page_object->post_type && ! in_array( $page_object->post_status, [ 'pending', 'trash', 'future', 'auto-draft' ], true ) ) {
+			if ( $page_object && 'page' === $page_object->post_type && ! in_array( $page_object->post_status, array( 'pending', 'trash', 'future', 'auto-draft' ), true ) ) {
 				// Valid page is already in place.
 				return $page_object->ID;
 			}
@@ -296,7 +340,7 @@ class Util {
 
 		if ( strlen( $page_content ) > 0 ) {
 			// Search for an existing page with the specified page content (typically a shortcode).
-			$shortcode        = str_replace( [ '<!-- wp:shortcode -->', '<!-- /wp:shortcode -->' ], '', $page_content );
+			$shortcode        = str_replace( array( '<!-- wp:shortcode -->', '<!-- /wp:shortcode -->' ), '', $page_content );
 			$valid_page_found = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_type='page' AND post_status NOT IN ( 'pending', 'trash', 'future', 'auto-draft' ) AND post_content LIKE %s LIMIT 1;", "%{$shortcode}%" ) );
 		} else {
 			// Search for an existing page with the specified page slug.
@@ -321,13 +365,13 @@ class Util {
 
 		if ( $trashed_page_found ) {
 			$page_id   = $trashed_page_found;
-			$page_data = [
+			$page_data = array(
 				'ID'          => $page_id,
 				'post_status' => 'publish',
-			];
+			);
 			wp_update_post( $page_data );
 		} else {
-			$page_data = [
+			$page_data = array(
 				'post_status'    => 'publish',
 				'post_type'      => 'page',
 				'post_author'    => 1,
@@ -336,7 +380,7 @@ class Util {
 				'post_content'   => $page_content,
 				'post_parent'    => $post_parent,
 				'comment_status' => 'closed',
-			];
+			);
 			$page_id   = wp_insert_post( $page_data );
 		}
 
@@ -368,7 +412,7 @@ class Util {
 	/**
 	 * Get the plugin data from the plugin header
 	 *
-	 * @param Plugin $plugin
+	 * @param Plugin $plugin Main plugin.
 	 * @return array The plugin data from the plugin header
 	 * @since 1.5.4
 	 */

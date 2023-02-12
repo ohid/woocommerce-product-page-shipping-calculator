@@ -1,7 +1,4 @@
 <?php
-
-namespace Barn2\WPPSC_Lib;
-
 /**
  * An object that provides services (instances of Barn2\WPPSC_Lib\Service).
  *
@@ -11,12 +8,15 @@ namespace Barn2\WPPSC_Lib;
  * @copyright Barn2 Media Ltd
  * @version   1.1
  */
+
+namespace Barn2\WPPSC_Lib;
+
 interface Service_Provider {
 
 	/**
 	 * Get the service for the specified ID.
 	 *
-	 * @param string $id The service ID
+	 * @param string $id The service ID.
 	 * @return Service The service object
 	 */
 	public function get_service( $id );

@@ -1,7 +1,6 @@
 <?php
 /**
  * Class Shipping_Settings
- * 
  *
  * @package   Barn2\woocommerce-product-page-shipping-calculator
  * @author    Barn2 Plugins <support@barn2.com>
@@ -27,40 +26,39 @@ class Shipping_Settings implements Registerable, Service {
 	/**
 	 * Constructor
 	 *
-	 * @param  Simple_Plugin $plugin The main instance of this plugin
+	 * @param  Simple_Plugin $plugin The main instance of this plugin.
 	 * @return void
 	 */
-    public function __construct( Simple_Plugin $plugin ) {
+	public function __construct( Simple_Plugin $plugin ) {
 		$this->plugin = $plugin;
-    }
+	}
 
 	/**
 	 * Register shpping methods
-
+	 *
 	 * @return void
 	 */
 	public function register() {
-		// Shipping options
-		add_filter('woocommerce_shipping_settings', array( $this, 'add_shipping_options' ) );
+		// Shipping options.
+		add_filter( 'woocommerce_shipping_settings', array( $this, 'add_shipping_options' ) );
 	}
 
 	/**
 	 * Add a new option to the woocommerce shipping settings
-	 * 
-	 * @return $settings 
+	 *
+	 * @param array $settings The settings array.
 	 */
 	public function add_shipping_options( $settings ) {
 		$new_setting = array(
 			array(
-				"desc" => "Enable the shipping calculator on the product page",
-				"id" => "wppsc_enable_shipping_calc_on_product_page",
-				"default" => "no",
-				"type" => "checkbox",
-				"checkboxgroup" => "middle"
-			)
+				'desc'          => __( 'Enable the shipping calculator on the product page', 'wppsc' ),
+				'id'            => 'wppsc_enable_shipping_calc_on_product_page',
+				'default'       => 'no',
+				'type'          => 'checkbox',
+				'checkboxgroup' => 'middle',
+			),
 		);
 		array_splice( $settings, 2, 0, $new_setting );
 		return $settings;
 	}
-
 }

@@ -11,7 +11,7 @@
 namespace Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator\Admin;
 
 use Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator\Plugin,
-    Barn2\WPPSC_Lib\Registerable;
+	Barn2\WPPSC_Lib\Registerable;
 
 /**
  * {@inheritdoc}
@@ -34,12 +34,12 @@ class Plugin_Setup implements Registerable {
 	/**
 	 * Get things started
 	 *
-	 * @param string $file
-	 * @param Plugin $plugin The main plugin instance
+	 * @param string $file The plugin file.
+	 * @param Plugin $plugin The main plugin instance.
 	 */
 	public function __construct( $file, Plugin $plugin ) {
-		$this->file    = $file;
-		$this->plugin  = $plugin;
+		$this->file   = $file;
+		$this->plugin = $plugin;
 	}
 
 	/**
@@ -48,14 +48,14 @@ class Plugin_Setup implements Registerable {
 	 * @return void
 	 */
 	public function register() {
-		register_activation_hook( $this->file, [ $this, 'on_activate' ] );
-		register_deactivation_hook( $this->file, [ $this, 'on_deactivate' ] );
+		register_activation_hook( $this->file, array( $this, 'on_activate' ) );
+		register_deactivation_hook( $this->file, array( $this, 'on_deactivate' ) );
 	}
 
 	/**
 	 * On plugin activation
-     * 
-     * Useful when need to create tables and transients
+	 *
+	 * Useful when need to create tables and transients
 	 *
 	 * @return void
 	 */
@@ -68,10 +68,10 @@ class Plugin_Setup implements Registerable {
 	 */
 	public function on_deactivate() {}
 
-	/** 
+	/**
 	 * Useful when need to remove plugin related data from the database
-	 * 
-	 * @return void 
+	 *
+	 * @return void
 	 */
 	public function on_uninstall() {}
 }

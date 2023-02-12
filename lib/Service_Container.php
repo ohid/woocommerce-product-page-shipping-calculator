@@ -1,7 +1,4 @@
 <?php
-
-namespace Barn2\WPPSC_Lib;
-
 /**
  * A trait for a service container.
  *
@@ -11,14 +8,32 @@ namespace Barn2\WPPSC_Lib;
  * @copyright Barn2 Media Ltd
  * @version   1.2
  */
+
+namespace Barn2\WPPSC_Lib;
+
 trait Service_Container {
 
-	private $services = [];
+	/**
+	 * List of services in an array
+	 *
+	 * @var $services
+	 */
+	private $services = array();
 
+	/**
+	 * Register the services
+	 *
+	 * @return void
+	 */
 	public function register_services() {
 		Util::register_services( $this->_get_services() );
 	}
 
+	/**
+	 * Get services list
+	 *
+	 * @return $services
+	 */
 	private function _get_services() { //phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 		if ( empty( $this->services ) ) {
 			$this->services = $this->get_services();
@@ -27,11 +42,21 @@ trait Service_Container {
 		return $this->services;
 	}
 
+	/**
+	 * Get services
+	 *
+	 * @return array
+	 */
 	public function get_services() {
 		// Overridden by classes using this trait.
-		return [];
+		return array();
 	}
 
+	/**
+	 * Get service by id
+	 *
+	 * @param string $id Service id.
+	 */
 	public function get_service( $id ) {
 		$services = $this->_get_services();
 

@@ -1,10 +1,4 @@
 <?php
-namespace Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator;
-
-use Barn2\WPPSC_Lib\Util as Lib_Util;
-
-use WP_Query;
-
 /**
  * Contain all the utility methods used by the plugins
  *
@@ -13,6 +7,9 @@ use WP_Query;
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
+
+namespace Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator;
+
 class Util {
 
 	/**

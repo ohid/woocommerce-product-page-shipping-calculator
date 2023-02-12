@@ -1,11 +1,4 @@
 <?php
-namespace Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator;
-
-use Barn2\WPPSC_Lib\Plugin\Simple_Plugin,
-	Barn2\WPPSC_Lib\Registerable,
-	Barn2\WPPSC_Lib\Translatable,
-	Barn2\WPPSC_Lib\Util as Lib_Util;
-
 /**
  * The main plugin class for WooCommerce Product Page Shipping Calculator.
  *
@@ -14,23 +7,36 @@ use Barn2\WPPSC_Lib\Plugin\Simple_Plugin,
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
+
+namespace Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator;
+
+use Barn2\WPPSC_Lib\Plugin\Simple_Plugin,
+	Barn2\WPPSC_Lib\Registerable,
+	Barn2\WPPSC_Lib\Translatable,
+	Barn2\WPPSC_Lib\Util as Lib_Util;
+
 class Plugin extends Simple_Plugin implements Registerable, Translatable {
 
 	const NAME    = 'WooCommerce Product Page Shipping Calculator';
 	const ITEM_ID = 509974;
 
+	/**
+	 * Services
+	 *
+	 * @var $services
+	 */
 	private $services;
 
 	/**
 	 * Constructor
 	 *
-	 * @param  string $file The path of the main plugin file
-	 * @param  string $version The current version of the plugin
+	 * @param  string $file The path of the main plugin file.
+	 * @param  string $version The current version of the plugin.
 	 * @return void
 	 */
 	public function __construct( $file = null, $version = null ) {
 		parent::__construct(
-			[
+			array(
 				'name'               => self::NAME,
 				'item_id'            => self::ITEM_ID,
 				'version'            => $version,
@@ -38,10 +44,10 @@ class Plugin extends Simple_Plugin implements Registerable, Translatable {
 				'is_woocommerce'     => Lib_Util::is_woocommerce_active(),
 				'settings_path'      => 'https://barn2.com/kb-categories/wc-shipping-calculator/',
 				'documentation_path' => 'kb-categories/wc-shipping-calculator/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=wppsc-settings',
-			]
+			)
 		);
 
-		$this->services = [];
+		$this->services = array();
 
 		if ( Lib_Util::is_admin() ) {
 			$this->services['admin/controller'] = new Admin\Admin_Controller( $this );
@@ -49,10 +55,10 @@ class Plugin extends Simple_Plugin implements Registerable, Translatable {
 
 		$this->services = array_merge(
 			$this->services,
-			[
+			array(
 				'product_page_calculator' => new Product_Page_Calculator( $this ),
-				'shipping_settings' 	  => new Shipping_Settings( $this )
-			]
+				'shipping_settings'       => new Shipping_Settings( $this ),
+			)
 		);
 	}
 
@@ -62,9 +68,9 @@ class Plugin extends Simple_Plugin implements Registerable, Translatable {
 	public function register() {
 		$plugin_setup = new Admin\Plugin_Setup( $this->get_file(), $this );
 		$plugin_setup->register();
-		
-		add_action( 'init', [ $this, 'load_plugin' ] );
-		add_action( 'init', [ $this, 'load_textdomain' ], 5 );
+
+		add_action( 'init', array( $this, 'load_plugin' ) );
+		add_action( 'init', array( $this, 'load_textdomain' ), 5 );
 	}
 
 	/**
@@ -84,7 +90,7 @@ class Plugin extends Simple_Plugin implements Registerable, Translatable {
 	/**
 	 * Return the local path of the `Admin` folder under the plugin root folder
 	 *
-	 * @param  string $file The subpath located in the Admin folder
+	 * @param string $file The subpath located in the Admin folder.
 	 * @return string
 	 */
 	public function get_admin_path( $file ) {

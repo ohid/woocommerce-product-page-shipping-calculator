@@ -1,7 +1,4 @@
 <?php
-
-namespace Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator;
-
 /**
  * Factory to create/return the shared plugin instance.
  *
@@ -10,15 +7,23 @@ namespace Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator;
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
+
+namespace Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator;
+
 class Plugin_Factory {
 
+	/**
+	 * The main plugin instance
+	 *
+	 * @var Plugin
+	 */
 	private static $plugin = null;
 
 	/**
 	 * Create/return the shared plugin instance.
 	 *
-	 * @param string $file
-	 * @param string $version
+	 * @param string $file The plugin file.
+	 * @param string $version The plugin version.
 	 * @return Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator\Plugin
 	 */
 	public static function create( $file, $version ) {

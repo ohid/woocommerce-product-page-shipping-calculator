@@ -1,7 +1,4 @@
 <?php
-
-namespace Barn2\WPPSC_Lib;
-
 /**
  * Something that can be translated by WordPress.
  *
@@ -11,6 +8,9 @@ namespace Barn2\WPPSC_Lib;
  * @copyright Barn2 Media Ltd
  * @version   1.0
  */
+
+namespace Barn2\WPPSC_Lib;
+
 interface Translatable {
 
 	/**
