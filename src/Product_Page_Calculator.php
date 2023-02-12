@@ -49,6 +49,7 @@ class Product_Page_Calculator implements Registerable, Service {
 		$this->shipping_calculator_visibility();
 		$position = $this->shipping_calculator_position();
 		add_action( $position, array( $this, 'product_page_calculator' ) );
+		add_shortcode( 'wppsc_shipping_calculator', array( $this, 'product_page_calculator' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'assets' ) );
 		add_action( 'wp_ajax_wppsc_calculate_shipping', array( $this, 'calculate_shipping' ) );
 		add_action( 'wp_ajax_nopriv_wppsc_calculate_shipping', array( $this, 'calculate_shipping' ) );

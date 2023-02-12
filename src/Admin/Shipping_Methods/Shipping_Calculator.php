@@ -91,6 +91,7 @@ class Shipping_Calculator extends \WC_Shipping_Method {
 					'woocommerce_product_meta_start'      => __( 'Before product meta start', 'wppsc' ),
 					'woocommerce_product_meta_end'        => __( 'After product meta end', 'wppsc' ),
 					'woocommerce_after_single_product_summary' => __( 'After single product summary', 'wppsc' ),
+					'woocommerce_tab_manager'             => __( 'WooCommerce tab manager content', 'wppsc' ),
 				),
 				'description' => __( 'Select the position where you want to display the shipping calculator in product page', 'wppsc' ),
 			),
