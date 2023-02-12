@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ruleset name="WooCommerce Product Page Shipping Calculator">
+    <arg name="extensions" value="php"/>
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>assets/*</exclude-pattern>
+    <exclude-pattern>.github/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+    <rule ref="WordPress" />
+    <rule ref="WordPress-Extra" />
+    <rule ref="WordPress-Docs" />
+</ruleset>

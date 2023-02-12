@@ -1,0 +1,65 @@
+body.wppsc-processing .wppsc-shipping-other-message,
+body.wppsc-processing .wppsc-shipping-calculator-container {
+    opacity: .5;
+}
+
+/* Shipping Calculator Shipping Cost Message */
+.wppsc-shipping-other-message {
+    background-color: #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.wppsc-shipping-other-message ul.wppsc-methods {
+    margin: 0;
+    padding: 0px;
+}
+.wppsc-shipping-other-message ul.wppsc-methods li {
+    list-style: none;
+}
+.woocommerce div.product .entry-summary .wppsc-shipping-other-message .woocommerce-Price-amount {
+    font-weight: bold;
+    font-size: inherit;
+}
+
+/* Shipping Calculator Container */
+.wppsc-shipping-calculator-container .wppsc-shipping-calculator-button {
+    border: 1px solid  rgb(243, 243, 243);
+    background-color:  rgb(243, 243, 243);
+}
+.wppsc-shipping-calculator-container .wppsc-shipping-calculator-form {
+    margin-top: 20px;
+    border: 1px solid #f0f0f0;
+    padding: 20px;
+}
+.wppsc-shipping-calculator-form .form-row span {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+.woocommerce-page form.wppsc-woocommerce-shipping-calculator .select2-container .select2-search__field, 
+.woocommerce-page form.wppsc-woocommerce-shipping-calculator .select2-container .select2-selection {
+    padding: 6px;
+    height: 43px;
+}
+.woocommerce-page form.wppsc-woocommerce-shipping-calculator .select2-container .select2-selection .select2-selection__arrow {
+    height: 43px;
+}
+.woocommerce-page .select2-container .select2-dropdown.wppsc-select2-dropdown {
+    border-color: #eee;
+}
+.woocommerce-page .select2-container .select2-dropdown.wppsc-select2-dropdown .select2-search__field {
+    height: 35px;
+}
+.woocommerce-page .select2-container .wppsc-select2-dropdown .select2-results__option {
+    font-size: 14px;
+    padding: 4px 6px;
+}
+.woocommerce-page .select2-container .wppsc-select2-dropdown .select2-dropdown {
+    padding: 10px;
+}
+.woocommerce form.wppsc-woocommerce-shipping-calculator .form-row .input-text, 
+.woocommerce-page form.wppsc-woocommerce-shipping-calculator .form-row .input-text {
+    padding: 10px;
+}

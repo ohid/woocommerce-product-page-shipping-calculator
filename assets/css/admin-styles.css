@@ -1,0 +1,8 @@
+.wppsc-license-field-description {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.wppsc-license-field-description .success {
+    color: rgb(6, 149, 6);
+}
