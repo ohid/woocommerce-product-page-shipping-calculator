@@ -1,0 +1,130 @@
+# Copyright (C) 2023 Barn2 Plugins
+# This file is distributed under the same license as the WooCommerce Product Page Shipping Calculator plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Product Page Shipping Calculator 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-product-page-shipping-calculator\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-02-13T11:48:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: wppsc\n"
+
+#. Plugin Name of the plugin
+msgid "WooCommerce Product Page Shipping Calculator"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://barn2.co.uk/wordpress-plugins/woocommerce-product-page-shipping-calculator"
+msgstr ""
+
+#. Description of the plugin
+msgid "Display a shipping calculator on the product page, allowing customers to calculate shipping costs before adding products to their cart."
+msgstr ""
+
+#. Author of the plugin
+msgid "Barn2 Plugins"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://barn2.com/wordpress-plugins/woocommerce-product-options/"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:44
+msgid "Shipping Calculator"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:45
+msgid "Shipping calculator"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:47
+msgid "The following options control the WooCommerce Product Page Shipping Calculator plugin. Enable/disable the calculator on the <a href=\"%s\">Shipping options</a> page"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:89
+msgid "Before add to cart"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:90
+msgid "After add to cart"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:91
+msgid "Before product meta start"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:92
+msgid "After product meta end"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:93
+msgid "After single product summary"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:94
+msgid "WooCommerce tab manager content"
+msgstr ""
+
+#: src/Admin/Shipping_Methods/Shipping_Calculator.php:96
+msgid "Select the position where you want to display the shipping calculator in product page"
+msgstr ""
+
+#: src/Product_Page_Calculator.php:226
+msgid "No shipping methods available for your location"
+msgstr ""
+
+#: src/Shipping_Settings.php:54
+msgid "Enable the shipping calculator on the product page"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:27
+msgid "Calculate shipping"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:33
+msgid "Country / region:"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:35
+msgid "Select a country / region&hellip;"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:54
+#: templates/cart/shipping-calculator.php:60
+#: templates/cart/shipping-calculator.php:73
+msgid "State / County"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:59
+#: templates/cart/shipping-calculator.php:72
+msgid "State / County:"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:61
+msgid "Select an option&hellip;"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:82
+msgid "City:"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:83
+msgid "City"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:89
+msgid "Postcode / ZIP:"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:90
+msgid "Postcode / ZIP"
+msgstr ""
+
+#: templates/cart/shipping-calculator.php:94
+msgid "Update"
+msgstr ""
