@@ -43,7 +43,7 @@ if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 		</div>
 		<?php
 	}
-	add_action( 'admin_notices', 'wppsc_shipping_calculator_notice' );
+	add_action( 'admin_notices', 'Barn2\Plugin\WooCommerce_Product_Page_Shipping_Calculator\wppsc_shipping_calculator_notice' );
 	return;
 }
 
