@@ -29,6 +29,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! function_exists( 'is_plugin_active ' ) ) {
+	include_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+	/**
+	 * Display notice when woocomomerce is inactive
+	 */
+	function wppsc_shipping_calculator_notice() {
+		?>
+		<div class="error notice">
+			<p><?php esc_html_e( 'Please Install and Activate WooCommerce plugin first, the shipping calculator plugin requires WooCommerce to be installed and activated.', 'wppsc' ); ?></p>
+		</div>
+		<?php
+	}
+	add_action( 'admin_notices', 'wppsc_shipping_calculator_notice' );
+	return;
+}
+
 const PLUGIN_VERSION = '1.0';
 const PLUGIN_FILE    = __FILE__;
 
